@@ -2,7 +2,6 @@ const httpStatus = require('http-status')
 const catchAsync = require('../../utils/catch-async')
 const { userService, tokenService } = require('../services')
 const ApiError = require('../../utils/api-error')
-const ResponseForm = require('../../utils/response')
 
 const register = catchAsync(async (req, res) => {
     const user = await userService.createUser(req.body)
@@ -14,7 +13,7 @@ const login = catchAsync(async (req, res) => {
     const { email, password } = req.body
     const user = await userService.login(email, password)
     const token = await tokenService.generateAuthTokens(user)
-    res.send(ResponseForm({ user, token }))
+    res.send({ user, token })
 })
 
 const refreshToken = catchAsync(async (req, res) => {
@@ -25,7 +24,7 @@ const refreshToken = catchAsync(async (req, res) => {
     }
     const token = await tokenService.generateAuthTokens(user)
 
-    res.send(ResponseForm({ user, token }))
+    res.send({ user, token })
 })
 
 const logout = catchAsync(async (req, res) => {
