@@ -5,7 +5,6 @@ const { fileService } = require('../services')
 
 const create = catchAsync(async (req, res) => {
     const file = await fileService.create(req.body, req.user)
-    res.send(Response)
     res.status(httpStatus.CREATED).send(file)
 })
 
