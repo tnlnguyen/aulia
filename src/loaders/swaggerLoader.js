@@ -13,8 +13,8 @@ module.exports = (app) => {
                 description: env.app.description,
                 version: env.app.version,
                 contact: {
-                    name: 'Aulia Interview',
-                    email: 'Aulia.Interview@gmail.com',
+                    name: 'Kinobi Interview',
+                    email: 'Kinobi.Interview@gmail.com',
                 },
                 license: {
                     name: 'By © Nhan Le',
